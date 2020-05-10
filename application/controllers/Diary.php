@@ -8,12 +8,14 @@ class Diary extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         is_logged_in();
+        $this->load->Model('MDiary');
     }
 
     public function index()
     {
     	$data['title'] = 'Diary Public';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['index'] = $this->MDiary->getAll();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -45,20 +47,20 @@ class Diary extends CI_Controller
             $id_status = $this->input->post('id_status');
 
             $this->db->query("INSERT INTO diary VALUES (NULL, '$konten_diary', '$tanggal_diary', '$id_user', '$only_psikolog', '$id_status')");
-            redirect('diary');
+            redirect('diary/saya');
         }
     }
 
     public function saya()
     {
-        //here
         $data['title'] = 'Diary Saya';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['diary_saya'] = $this->MDiary->diary_saya($this->session->userdata('id'));
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('diary/tulis', $data);
+        $this->load->view('diary/saya', $data);
         $this->load->view('templates/footer');
     }
 }

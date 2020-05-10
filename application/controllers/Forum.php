@@ -18,7 +18,7 @@ class Forum extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('diary/index', $data);
+        $this->load->view('forum/index', $data);
         $this->load->view('templates/footer');
     }
 }
