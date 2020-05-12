@@ -14,6 +14,7 @@ class Forum extends CI_Controller
     {
     	$data['title'] = 'Forum';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['allForum'] = $this->db->query("SELECT * FROM list_forum WHERE id_status = 2")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

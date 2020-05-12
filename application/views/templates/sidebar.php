@@ -3,8 +3,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-code"></i>
+                <div class="sidebar-brand-icon">
+                    <img style="width: 40px" src="<?= base_url('assets/img/logo.png')?>">
                 </div>
                 <div class="sidebar-brand-text mx-3">Believe</div>
             </a>

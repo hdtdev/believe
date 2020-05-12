@@ -55,6 +55,15 @@
             <!-- Page level custom scripts -->
             <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
 
+            <script type="text/javascript" src="<?php echo base_url('ckeditor/ckeditor.js')?>"></script>
+
+
+            <script>
+              CKEDITOR.replace('.ckedtor' ,{
+                filebrowserImageBrowseUrl : 'kcfinder'
+                });
+            </script>
+
             <script>
                 $('.custom-file-input').on('change', function() {
                     let fileName = $(this).val().split('\\').pop();
