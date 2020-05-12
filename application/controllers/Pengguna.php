@@ -14,6 +14,7 @@ class Pengguna extends CI_Controller
     {
     	$data['title'] = 'List Pengguna';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['allUser'] = $this->db->query("SELECT * FROM user WHERE role_id = 3")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
