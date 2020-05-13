@@ -8,6 +8,7 @@ class Artikel_psikolog extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         is_logged_in();
+        $this->load->model('MArtikel');
     }
 
     public function index()
@@ -38,13 +39,14 @@ class Artikel_psikolog extends CI_Controller
             $this->load->view('artikel_psikolog/buat', $data);
             $this->load->view('templates/footer');
         }else{
+
             $judul_artikel = $this->input->post("judul_artikel");
             $konten_artikel = $this->input->post("konten_artikel");
             $id_kategori = $this->input->post("id_kategori");
             $tanggal_artikel = date("Y-m-d");
+            $id_user = $this->input->post("id_user");
             $id_status = $this->input->post("id_status");
-
-            $this->db->query("INSERT INTO artikel VALUES(NULL, $judul_artikel, $konten_artikel, $id_kategori, $tanggal_artikel, $id_status)");
+            $this->db->query("INSERT INTO artikel VALUES(NULL, '$judul_artikel', '$konten_artikel', '$id_kategori', '$tanggal_artikel', '$id_user', '$id_status')");
             redirect('artikel_psikolog');
         }
     }
