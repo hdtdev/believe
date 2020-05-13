@@ -27,11 +27,25 @@ class Artikel_psikolog extends CI_Controller
         //here
         $data['title'] = 'Buat Artikel';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['kategori'] = $this->db->query("SELECT * FROM kategori WHERE id_status = 2")->result_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('artikel_psikolog/buat', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('artikel_psikolog/buat', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $judul_artikel = $this->input->post("judul_artikel");
+            $konten_artikel = $this->input->post("konten_artikel");
+            $id_kategori = $this->input->post("id_kategori");
+            $tanggal_artikel = date("Y-m-d");
+            $id_status = $this->input->post("id_status");
+
+            $this->db->query("INSERT INTO artikel VALUES(NULL, $judul_artikel, $konten_artikel, $id_kategori, $tanggal_artikel, $id_status)");
+            redirect('artikel_psikolog');
+        }
     }
 }

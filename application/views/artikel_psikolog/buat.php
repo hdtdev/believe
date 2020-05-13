@@ -8,33 +8,38 @@
 
     <form method="post" action="<?= base_url('artikel_psikolog/buat')?>" enctype="multipart/form-data">
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Konten</label>
+            <label for="name" class="col-sm-2 col-form-label">Judul Artikel</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="konten_diary" name="konten_diary" placeholder="Tulis Judul Artikel" rows="8"></input>
+                <input type="text" class="form-control" id="judul_artikel" name="judul_artikel" placeholder="Tulis Judul Artikel" rows="8"></input>
+                <input type="hidden" class="form-control" id="id_user" name="id_user" value="<?= $user['id']; ?>"></input>
             </div>
-            <?= form_error('konten_diary', '<small class="text-danger pl-3">', '</small>'); ?>
+            <?= form_error('judul_artikel', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
 
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Konten</label>
             <div class="col-sm-10">
-                <textarea id="ckeditor" class="form-control ckeditor" id="konten_diary" name="konten_diary" placeholder="Ceritakan yang anda rasakan..." rows="8"></textarea>
+                <textarea id="ckeditor" class="form-control ckeditor" id="konten_artikel" name="konten_artikel" placeholder="Ceritakan yang anda rasakan..." rows="8"></textarea>
             </div>
-            <?= form_error('konten_diary', '<small class="text-danger pl-3">', '</small>'); ?>
+            <?= form_error('konten_artikel', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
 
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Only Psikolog</label>
+            <label for="name" class="col-sm-2 col-form-label">Kategori</label>
             <div class="col-sm-10">
-                <select class="form-control" id="only_psikolog" name="only_psikolog">
-                    <option value="0">Tidak</option>
-                    <option value="1">Ya</option>
+                <select class="form-control" id="id_kategori" name="id_kategori">
+                    <?php
+                        echo '<option value="">--choose category--</option>';
+                        foreach ($kategori as $cat) {
+                            echo '<option value="'.$cat['id_kategori'].'">'.$cat['judul_kategori'].'</option>';
+                        }
+                    ?>
                 </select>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Status Diary</label>
+            <label for="name" class="col-sm-2 col-form-label">Status</label>
             <div class="col-sm-10">
                 <select class="form-control" id="id_status" name="id_status">
                     <option value="1">draft</option>
