@@ -15,6 +15,7 @@ class Artikel_psikolog extends CI_Controller
     {
     	$data['title'] = 'Artikel';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['index'] = $this->db->query("SELECT * FROM artikel INNER JOIN user ON id_user=id")->result_array(); 
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

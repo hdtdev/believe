@@ -5,8 +5,11 @@
     <div class="text-center">
         <h1 class="h3 mb-4 text-gray-800"><strong><?= $title; ?></strong></h1>
     </div>
-    <p><?= $diaryId['konten_diary']?></p>
-    
+
+    <p style="font-size: 14px"><i><?= $artikelDetail['tanggal_artikel']?> | <?= $artikelDetail['judul_kategori']?></i></p>
+    <p>
+    	<?= $artikelDetail['konten_artikel']?>
+    </p>
 </div>
 <!-- /.container-fluid -->
 

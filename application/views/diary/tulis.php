@@ -10,7 +10,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Konten</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="konten_diary" name="konten_diary" placeholder="Ceritakan yang anda rasakan..." rows="8"></textarea>
+                <textarea class="form-control ckeditor" id="ckeditor" name="konten_diary" placeholder="Ceritakan yang anda rasakan..." rows="8"></textarea>
             </div>
             <?= form_error('konten_diary', '<small class="text-danger pl-3">', '</small>'); ?>
         </div>
