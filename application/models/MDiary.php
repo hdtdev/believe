@@ -14,4 +14,16 @@ class MDiary extends CI_Model
     	$sql = $this->db->query("SELECT * FROM diary WHERE id_status = 2 AND only_psikolog = 0");
     	return $sql->result_array();
     }
+
+    public function getById($id_diary)
+    {
+        $sql = $this->db->query("SELECT * FROM diary WHERE id_diary =".intval($id_diary));
+        return $sql->row_array();
+    }
+
+    public function getDiaryPsikolog()
+    {
+        $sql = $this->db->query("SELECT * FROM diary WHERE only_psikolog = 1 AND id_status =2");
+        return $sql->result_array();
+    }
 }

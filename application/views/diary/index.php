@@ -15,25 +15,13 @@
             <!-- Card Body -->
             <div class="card-body text-justify">
               <?= $diary['konten_diary']?> <br>
-              <a href="#" style="padding-left: 0!important; margin-top: 1%" class="btn btn-secondary btn-icon-split">
+              <a href="<?= site_url('diary/lihat/'.$diary['id_diary'])?>" style="padding-left: 0!important; margin-top: 1%" class="btn btn-secondary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
                     <span class="text">Selengkapnya</span>
                 </a>
             </div>
-    		<!-- <div class="card">
-				<div class="card-body">
-					<h5 class="card-title"><?= $user['name']?> </h5><span><?= $diary['tanggal_diary']?></span>
-				    <p class="card-text text-justify"><?= $diary['konten_diary']?></p>
-				    <a href="#" style="padding-left: 0!important" class="btn btn-secondary btn-icon-split">
-	                	<span class="icon text-white-50">
-	                    	<i class="fas fa-arrow-right"></i>
-	                    </span>
-	                    <span class="text">Selengkapnya</span>
-	                </a>
-				</div>
-			</div> -->
      	</div>
     <?php endforeach;?>
 </div>

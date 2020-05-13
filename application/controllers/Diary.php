@@ -63,4 +63,18 @@ class Diary extends CI_Controller
         $this->load->view('diary/saya', $data);
         $this->load->view('templates/footer');
     }
+
+    public function lihat($id_diary)
+    {
+        //here
+        $data['title'] = 'Diary Public';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['diaryId'] = $this->MDiary->getById($id_diary);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('diary/lihat', $data);
+        $this->load->view('templates/footer');
+    }
 }
