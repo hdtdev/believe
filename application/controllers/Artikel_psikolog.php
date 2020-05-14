@@ -58,7 +58,7 @@ class Artikel_psikolog extends CI_Controller
         $data['title'] = 'Artikel';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['artikelDetail'] = $this->db->query("SELECT * FROM artikel INNER JOIN kategori ON artikel.id_kategori = kategori.id_kategori WHERE artikel.id_status = 2 AND id_artikel =  ".intval($id_artikel))->row_array(); 
-        $data['komentar'] = $this->db->query("SELECT * FROM komentar_artikel INNER JOIN user ON id=id_user WHERE id_artikel =".$id_artikel)->result_array();
+        $data['komentar'] = $this->db->query("SELECT * FROM komentar_artikel INNER JOIN user ON id=id_user WHERE id_artikel = $id_artikel ORDER BY waktu_komentar_artikel ASC")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

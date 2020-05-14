@@ -70,11 +70,29 @@ class Diary extends CI_Controller
         $data['title'] = 'Diary Public';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['diaryId'] = $this->MDiary->getById($id_diary);
+        $data['komentar'] = $this->db->query("SELECT * FROM komentar_diary INNER JOIN user ON id=id_user WHERE id_diary =$id_diary ORDER BY waktu_komentar_diary ASC")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('diary/lihat', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function komentar($id_diary)
+    {
+        $data['title'] = 'Tulis Komentar';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('diary/komentar', $data);
+        $this->load->view('templates/footer');
+
+        if (isset($_POST['submit_komentar_diary'])) {
+            $this->MDiary->komentar($_POST, $id_diary);
+            redirect('diary/lihat/'.intval($id_diary));
+        }
     }
 }

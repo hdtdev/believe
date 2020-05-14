@@ -27,4 +27,21 @@ class MDiary extends CI_Model
         $sql = $this->db->query("SELECT * FROM diary INNER JOIN user ON id=id_user WHERE only_psikolog = 1 AND id_status =2");
         return $sql->result_array();
     }
+
+    public function komentar($post, $id_diary)
+    {
+        //here
+        $konten_komentar = $this->input->post('konten_komentar');
+        $id_user = $this->session->userdata('id');
+        $id_diary = $id_diary;
+        $waktu_komentar_diary = date("Y-m-d h:i:sa");
+        
+        $sql = $this->db->query("INSERT INTO komentar_diary VALUES(NULL, '$konten_komentar', '$id_user', '$id_diary', '$waktu_komentar_diary')");
+
+        if($sql){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
