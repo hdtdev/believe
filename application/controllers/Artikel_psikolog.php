@@ -51,4 +51,36 @@ class Artikel_psikolog extends CI_Controller
             redirect('artikel_psikolog');
         }
     }
+
+    public function lihat($id_artikel)
+    {
+        //here
+        $data['title'] = 'Artikel';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['artikelDetail'] = $this->db->query("SELECT * FROM artikel INNER JOIN kategori ON artikel.id_kategori = kategori.id_kategori WHERE artikel.id_status = 2 AND id_artikel =  ".intval($id_artikel))->row_array(); 
+        $data['komentar'] = $this->db->query("SELECT * FROM komentar_artikel INNER JOIN user ON id=id_user WHERE id_artikel =".$id_artikel)->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('artikel_psikolog/lihat', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function komentar($id_artikel)
+    {
+        $data['title'] = 'Tulis Komentar';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('artikel/komentar', $data);
+        $this->load->view('templates/footer');
+
+        if (isset($_POST['submit_komentar_artikel'])) {
+            $this->MArtikel->komentar($_POST, $id_artikel);
+            redirect('artikel_psikolog/lihat/'.intval($id_artikel));
+        }
+    }
 }

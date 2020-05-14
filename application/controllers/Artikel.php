@@ -39,31 +39,6 @@ class Artikel extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    // public function komentar($id_artikel)
-    // {
-    //     //here
-    //     $data['title'] = 'Tulis Komentar';
-    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-    //     $this->form_validation->set_rules('konten_diary', 'Konten', 'required');
-
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('templates/header', $data);
-    //         $this->load->view('templates/sidebar', $data);
-    //         $this->load->view('templates/topbar', $data);
-    //         $this->load->view('artikel/komentar', $data);
-    //         $this->load->view('templates/footer');
-    //     }else{
-    //         $konten_komentar = $this->input->post('konten_komentar');
-    //         $id_user = $this->session->userdata('id');
-    //         $id_artikel = $id_artikel;
-    //         $waktu_komentar_artikel = date("Y-m-d h:i:sa");
-
-    //         $this->db->query("INSERT INTO komentar_artikel VALUES(NULL, $konten_komentar, $id_user, $id_artikel, $waktu_komentar_artikel)");
-    //         redirect('artikel/lihat/'.$id_artikel);
-    //     }
-    // }
-
     public function komentar($id_artikel)
     {
         $data['title'] = 'Tulis Komentar';
