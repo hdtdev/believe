@@ -3,16 +3,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class MArtikel extends CI_Model
 {
-	public function add($post)
+	public function komentar($post, $id_artikel)
 	{
 		//here
-		$judul_artikel = $this->db->escape($post["judul_artikel"]);
-        $konten_artikel = $this->db->escape(["konten_artikel"]);
-        $id_kategori = $this->db->escape(["id_kategori"]);
-        $tanggal_artikel = date("Y-m-d");
-        $id_status = $this->db->escape($post["id_status"]);
+		$konten_komentar = $this->input->post('konten_komentar');
+        $id_user = $this->session->userdata('id');
+        $id_artikel = $id_artikel;
+        $waktu_komentar_artikel = date("Y-m-d h:i:sa");
         
-        $sql = $this->db->query("INSERT INTO artikel VALUES(NULL, $judul_artikel, '$konten_artikel', $id_kategori, $tanggal_artikel, $id_status)");
+        $sql = $this->db->query("INSERT INTO komentar_artikel VALUES(NULL, '$konten_komentar', '$id_user', '$id_artikel', '$waktu_komentar_artikel')");
 
         if($sql){
 			return true;

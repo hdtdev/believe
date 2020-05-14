@@ -14,6 +14,14 @@
 	      <h6 class="m-0 font-weight-bold text-primary"><?= $artikel['judul_artikel']?></h6>
 	    </div>
 	    <div class="card-body">
+	    	<!-- Konfersi date dari timestamp ke 13 may 2020 -->
+	    	<?php 
+	    		$oldDate = $artikel['tanggal_artikel'];
+	    		$newDate = date("d F Y", strtotime($oldDate))
+	    	?>
+	    	<!-- End Konfersi -->
+
+	    	<span style="font-size: 14px"><i><?= $artikel['name']?> | <?= $newDate; ?> | <?= $artikel['judul_kategori']?></i></span>
 	      	<p><?= $artikel['konten_artikel']?></p>
 
 	      	<a href="<?= site_url('artikel/lihat/'.$artikel['id_artikel'])?>" style="padding-left: 0!important; margin-top: 1%" class="btn btn-secondary btn-icon-split">
