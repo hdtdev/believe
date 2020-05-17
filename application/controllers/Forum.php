@@ -42,21 +42,4 @@ class Forum extends CI_Controller
             redirect('forum/diskusi/'.intval($id_list_forum));
         }
     }
-
-    // public function komentar($id_forum)
-    // {
-    //     $data['title'] = 'Tulis Komentar';
-    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('templates/sidebar', $data);
-    //     $this->load->view('templates/topbar', $data);
-    //     $this->load->view('forum/komentar', $data);
-    //     $this->load->view('templates/footer');
-
-    //     if (isset($_POST['submit_komentar_forum'])) {
-    //         $this->MForum->komentar($_POST, $id_forum);
-    //         redirect('forum/lihat/'.intval($id_forum));
-    //     }
-    // }
 }

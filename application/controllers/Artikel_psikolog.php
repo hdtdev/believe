@@ -65,22 +65,27 @@ class Artikel_psikolog extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('artikel_psikolog/lihat', $data);
         $this->load->view('templates/footer');
-    }
-
-    public function komentar($id_artikel)
-    {
-        $data['title'] = 'Tulis Komentar';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('artikel/komentar', $data);
-        $this->load->view('templates/footer');
 
         if (isset($_POST['submit_komentar_artikel'])) {
             $this->MArtikel->komentar($_POST, $id_artikel);
             redirect('artikel_psikolog/lihat/'.intval($id_artikel));
         }
     }
+
+    // public function komentar($id_artikel)
+    // {
+    //     $data['title'] = 'Tulis Komentar';
+    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/sidebar', $data);
+    //     $this->load->view('templates/topbar', $data);
+    //     $this->load->view('artikel/komentar', $data);
+    //     $this->load->view('templates/footer');
+
+    //     if (isset($_POST['submit_komentar_artikel'])) {
+    //         $this->MArtikel->komentar($_POST, $id_artikel);
+    //         redirect('artikel_psikolog/lihat/'.intval($id_artikel));
+    //     }
+    // }
 }

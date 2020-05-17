@@ -1,10 +1,16 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#"><?= $this->uri->segment(1)?></a></li>
+        <li class="breadcrumb-item"><a href="#"><?= $this->uri->segment(2)?></a></li>
+        <li class="breadcrumb-item"><a href="#"><?= $artikelDetail['judul_artikel'] ?></a></li>
+      </ol>
+    </nav>
 
     <!-- Page Heading -->
     <div class="text-center" style="margin-bottom: 4%">
-        <h1 class="h3 mb-4 text-gray-800" style="margin-bottom: 5px!important"><strong><?= $artikelDetail['judul_artikel'] ?></strong></h1>
-        <span class="bg-info" style="padding: 0.5%; font-size: 14px; margin-top: 0!important; color: white"><i> <?= $this->uri->segment(1) ." / ".$this->uri->segment(2)." / ".$artikelDetail['judul_artikel']?> </i></span>
+        <h1 class="h3 mb-4 text-gray-800"><strong><?= $artikelDetail['judul_artikel'] ?></strong></h1>
     </div>
 
     <p style="font-size: 14px"><i><?= $artikelDetail['tanggal_artikel']?> | <?= $artikelDetail['judul_kategori']?></i></p>
@@ -29,24 +35,37 @@
     		</div>
     	</div>
     </div>
-    <!-- <div class="card shadow mb-4">
-	    <div class="card-header py-3">
-	      <h6 class="m-0 font-weight-bold text-primary"><?= $komen['name']?></h6>
-	    </div>
-	    <div class="card-body">
-	    	<span style="font-size: 14px"><i><?= $komen['waktu_komentar_artikel']?></i></span>
-	      	<p><?= $komen['konten_komentar']?></p>
-	    </div>
-	</div> -->
+
 	<?php endforeach;?>
 
-    <div class="text-center">
+    <!-- <div class="text-center">
     	<a style="margin-top: 2%" href="<?= site_url('artikel/komentar/'.$artikelDetail['id_artikel'])?>" class="btn btn-secondary btn-icon-split">
             <span class="icon text-white-50">
               <i class="fas fa-comment"></i>
             </span>
             <span class="text">Tambah Komentar</span>
         </a>
+    </div> -->
+
+    <div class="container" style="margin-top: 2%">
+        <div class="row">
+            <div class="col-sm-12">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <textarea class="form-control ckeditor" id="konten_komentar" name="konten_komentar" rows="8"></textarea>
+                        </div>
+                        <?= form_error('konten_komentar', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group row justify-content-end">
+                        <div class="col-sm-12">
+                            <button name="submit_komentar_artikel" type="submit" class="btn btn-primary">Kirim Komentar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /.container-fluid -->

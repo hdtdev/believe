@@ -1,10 +1,15 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a href="#"><?= $this->uri->segment(1)?></a></li>
+	    <li class="breadcrumb-item"><a href="#"><?= $this->uri->segment(2)?></a></li>
+	  </ol>
+	</nav>
 
     <!-- Page Heading -->
     <div class="text-center" style="margin-bottom: 4%">
-        <h1 class="h3 mb-4 text-gray-800" style="margin-bottom: 5px!important"><strong><?= $title; ?></strong></h1>
-        <span class="bg-info" style="padding: 0.5%; font-size: 14px; margin-top: 0!important; color: white"><i> <?= $this->uri->segment(1) ." / ".$this->uri->segment(2)?> </i></span>
+        <h1 class="h3 mb-4 text-gray-800"><strong><?= $title; ?></strong></h1>
     </div>
 
     <!-- here -->

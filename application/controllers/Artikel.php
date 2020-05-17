@@ -37,6 +37,11 @@ class Artikel extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('artikel/lihat', $data);
         $this->load->view('templates/footer');
+
+        if (isset($_POST['submit_komentar_artikel'])) {
+            $this->MArtikel->komentar($_POST, $id_artikel);
+            redirect('artikel/lihat/'.intval($id_artikel));
+        }
     }
 
     public function komentar($id_artikel)
@@ -50,7 +55,7 @@ class Artikel extends CI_Controller
         $this->load->view('artikel/komentar', $data);
         $this->load->view('templates/footer');
 
-        if (isset($_POST['submit_komentar_artikel'])) {
+        if (isset($_POST['submit_komentar_artike'])) {
             $this->MArtikel->komentar($_POST, $id_artikel);
             redirect('artikel/lihat/'.intval($id_artikel));
         }

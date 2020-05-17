@@ -39,13 +39,25 @@
 	</div> -->
 	<?php endforeach;?>
 
-    <div class="text-center">
-    	<a style="margin-top: 2%" href="<?= site_url('artikel_psikolog/komentar/'.$artikelDetail['id_artikel'])?>" class="btn btn-secondary btn-icon-split">
-            <span class="icon text-white-50">
-              <i class="fas fa-comment"></i>
-            </span>
-            <span class="text">Tambah Komentar</span>
-        </a>
+    <div class="container" style="margin-top: 2%">
+        <div class="row">
+            <div class="col-sm-12">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <textarea class="form-control ckeditor" id="konten_komentar" name="konten_komentar" rows="8"></textarea>
+                        </div>
+                        <?= form_error('konten_komentar', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group row justify-content-end">
+                        <div class="col-sm-12">
+                            <button name="submit_komentar_artikel" type="submit" class="btn btn-primary">Kirim Komentar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <!-- /.container-fluid -->
