@@ -47,7 +47,7 @@
 
             <div class="form-group row justify-content-end">
                 <div class="col-sm-10">
-                    <button name="update_profile" type="submit" class="btn btn-primary">Update</button>
+                    <button name="update_profile" type="submit" class="btn btn-believe">Update Data</button>
                 </div>
             </div>
 

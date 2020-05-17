@@ -67,7 +67,7 @@ class Diary extends CI_Controller
     public function lihat($id_diary)
     {
         //here
-        $data['title'] = 'Diary Public';
+        $data['title'] = 'Details Diary';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['diaryId'] = $this->MDiary->getById($id_diary);
         $data['komentar'] = $this->db->query("SELECT * FROM komentar_diary INNER JOIN user ON id=id_user WHERE id_diary =$id_diary ORDER BY waktu_komentar_diary ASC")->result_array();

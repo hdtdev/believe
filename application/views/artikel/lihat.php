@@ -25,7 +25,7 @@
     <div class="container shadow" style="margin-top: 1%;">
     	<div class="row" style="padding: 1%">
             <div class="col-sm-1">
-                <img style="width: 100%; border-radius: 50%" src="<?= base_url('assets/img/profile/').$komen['image']?>">
+                <img class="img-comment" src="<?= base_url('assets/img/profile/').$komen['image']?>">
             </div>
             <div class="col-sm-11">
                 <div class="row">
@@ -68,7 +68,7 @@
 
                     <div class="form-group row justify-content-end">
                         <div class="col-sm-12">
-                            <button name="submit_komentar_artikel" type="submit" class="btn btn-primary">Kirim Komentar</button>
+                            <button name="submit_komentar_artikel" type="submit" class="btn btn-believe">Kirim Komentar</button>
                         </div>
                     </div>
                 </form>

@@ -20,7 +20,7 @@
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
-                    <span class="text">Selengkapnya</span>
+                    <span class="text btn-believe">Selengkapnya</span>
                 </a>
             </div>
      	</div>

@@ -1,0 +1,11 @@
+.btn-believe{
+	background-color: #7c0dc0;
+	color: white;
+}
+
+.img-comment{
+	width: 100%; 
+	border-radius: 50%; 
+	border-color: #7c0dc0; 
+	border-style: solid;
+}
