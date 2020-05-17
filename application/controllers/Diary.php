@@ -77,22 +77,27 @@ class Diary extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('diary/lihat', $data);
         $this->load->view('templates/footer');
-    }
-
-    public function komentar($id_diary)
-    {
-        $data['title'] = 'Tulis Komentar';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('diary/komentar', $data);
-        $this->load->view('templates/footer');
 
         if (isset($_POST['submit_komentar_diary'])) {
             $this->MDiary->komentar($_POST, $id_diary);
             redirect('diary/lihat/'.intval($id_diary));
         }
     }
+
+    // public function komentar($id_diary)
+    // {
+    //     $data['title'] = 'Tulis Komentar';
+    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/sidebar', $data);
+    //     $this->load->view('templates/topbar', $data);
+    //     $this->load->view('diary/komentar', $data);
+    //     $this->load->view('templates/footer');
+
+    //     if (isset($_POST['submit_komentar_diary'])) {
+    //         $this->MDiary->komentar($_POST, $id_diary);
+    //         redirect('diary/lihat/'.intval($id_diary));
+    //     }
+    // }
 }

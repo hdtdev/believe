@@ -37,6 +37,11 @@ class Diary_psikolog extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('diarypsikolog/lihat', $data);
         $this->load->view('templates/footer');
+
+        if (isset($_POST['submit_komentar_diary_psikolog'])) {
+            $this->MDiary->komentar($_POST, $id_diary);
+            redirect('diary_psikolog/lihat/'.intval($id_diary));
+        }
     }
 
     public function psikolog()
