@@ -15,29 +15,29 @@
     	<span style="font-size: 20px"><strong>Komentar</strong></span>
     </div>
     <?php foreach($komentar as $komen):?>
-    <div class="container shadow" style="margin-top: 1%">
-    	<div class="row" style="padding: 1%">
-    		<div class="col-8">
-    			<strong><?= $komen['name']?></strong>
-    		</div>
-    		<div class="col-4 text-right">
-    			<i style="font-size: 14px"><?= $komen['waktu_komentar_artikel']?></i>
-    		</div>
-    		<div class="col-sm-12">
-    			<p><?= $komen['konten_komentar']?></p>
-    		</div>
-    	</div>
+    <div class="container shadow" style="margin-top: 1%;">
+        <div class="row" style="padding: 1%">
+            <div class="col-sm-1">
+                <img style="width: 100%; border-radius: 50%" src="<?= base_url('assets/img/profile/').$komen['image']?>">
+            </div>
+            <div class="col-sm-11">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <strong><?= $komen['name']?></strong>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <i style="font-size: 14px"><?= $komen['waktu_komentar_artikel']?></i>
+                    </div>
+                    <div class="col-sm-12">
+                        <p class="text-justify"><?= $komen['konten_komentar']?></p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
-    <!-- <div class="card shadow mb-4">
-	    <div class="card-header py-3">
-	      <h6 class="m-0 font-weight-bold text-primary"><?= $komen['name']?></h6>
-	    </div>
-	    <div class="card-body">
-	    	<span style="font-size: 14px"><i><?= $komen['waktu_komentar_artikel']?></i></span>
-	      	<p><?= $komen['konten_komentar']?></p>
-	    </div>
-	</div> -->
-	<?php endforeach;?>
+
+    <?php endforeach;?>
 
     <div class="container" style="margin-top: 2%">
         <div class="row">
