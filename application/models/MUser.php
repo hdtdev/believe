@@ -7,6 +7,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class MUser extends CI_Model
 {
 	
+	public function diary_saya($id_user)
+    {
+        $sql = $this->db->query("SELECT * FROM diary INNER JOIN user ON id=id_user WHERE id_user=".intval($id_user));
+        return $sql->result_array();
+    }
+    
 	public function update_profile($post, $id)
 	{
 		$nama = $this->db->escape($post['name']);

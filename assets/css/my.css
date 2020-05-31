@@ -9,3 +9,21 @@
 	border-color: #7c0dc0; 
 	border-style: solid;
 }
+
+@media(max-width: 768px){
+	.img-profile{
+	width: 70%; 
+	border-radius: 50%; 
+	border-color: #7c0dc0; 
+	border-style: solid;
+	}
+}
+
+@media(min-width: 768px){
+	.img-profile{
+	width: 10%; 
+	border-radius: 50%; 
+	border-color: #7c0dc0; 
+	border-style: solid;
+	}
+}

@@ -2,9 +2,9 @@
 <div class="container-fluid">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#"><?= $this->uri->segment(1)?></a></li>
-        <li class="breadcrumb-item"><a href="#"><?= $this->uri->segment(2)?></a></li>
-        <li class="breadcrumb-item"><a href="#"><?= $artikelDetail['judul_artikel'] ?></a></li>
+        <li class="breadcrumb-item"><a style="color: #7c0dc0" href="#"><?= $this->uri->segment(1)?></a></li>
+        <li class="breadcrumb-item"><a style="color: #7c0dc0" href="#"><?= $this->uri->segment(2)?></a></li>
+        <li class="breadcrumb-item"><a style="color: #7c0dc0" href="#"><?= $artikelDetail['judul_artikel'] ?></a></li>
       </ol>
     </nav>
 

@@ -12,7 +12,7 @@
     	<div class="col-sm-6 shadow" style="border: 1px; margin-top: 2%;">
 	    	<div class="row">
 	    		<div class="col-md-4">
-	    			<i style="width: 100%" class="<?= $forum['image_list_forum']?>" aria-hidden="true"></i>
+	    			<img style="width: 80%" src="<?= base_url('assets/img/logo.png')?>">
 	    		</div>
 	    		<div class="col-md-8" style="padding: 2%">
 	    			<span style="font-size: 20px"><strong><?= $forum['nama_list_forum']?></strong></span><br>

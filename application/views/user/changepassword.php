@@ -1,9 +1,16 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a style="color: #7c0dc0" href="#"><?= $this->uri->segment(1)?></a></li>
+        <li class="breadcrumb-item"><a style="color: #7c0dc0" href="#"><?= $title ?></a></li>
+      </ol>
+    </nav>
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
+    <div class="col-sm-12 text-center" style="margin-top: 2%">
+        <h1 class="h3 mb-4 text-gray-800"><strong> <?= $title; ?></strong></h1>
+    </div>
 
     <div class="row">
         <div class="col-lg-6">

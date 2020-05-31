@@ -7,6 +7,22 @@
     </div>
 
     <!-- here -->
+    <div class="row">
+    <?php foreach($list as $konsultasi):?>
+	    <div class="col-sm-6 shadow" style="border: 1px; margin-top: 2%; padding: 15px">
+	    	<div class="row">
+	    		<div style="width: 30%;">
+	    			<img width="100%" style="border-radius: 50%" src="<?= base_url('assets/img/profile/') . $konsultasi['image']; ?>">
+	    		</div>
+	    		<div style="width: 70%">
+	    			<span style="font-size: 20px"><strong><?= $konsultasi['name']?> </strong></span>
+	    			<p class="text-justify"><?= $konsultasi['pesan']?> </p>
+	    			<a href="<?= site_url('konsultasi_psikolog/lihat/').$konsultasi['id_user']?>" class="btn btn-primary">See More</a>
+	    		</div>
+	    	</div>
+	    </div>
+	<?php endforeach;?>
+	</div>
 
 </div>
 <!-- /.container-fluid -->
