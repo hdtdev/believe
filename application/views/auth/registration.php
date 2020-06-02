@@ -18,6 +18,16 @@
                                 <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" value="<?= set_value('email'); ?>">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control form-control-user" id="tgl_lahir" name="tgl_lahir" value="<?= set_value('tgl_lahir'); ?>">
+                                <?= form_error('tgl_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control form-control-user" id="sex" name="sex">
+                                    <option value="p">Perempuan</option>
+                                    <option value="l">Laki-laki</option>
+                                </select>
+                            </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">

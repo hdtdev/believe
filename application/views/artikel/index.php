@@ -28,8 +28,8 @@
 	    	<!-- End Konfersi -->
 
 	    	<span style="font-size: 14px"><i><?= $artikel['name']?> | <?= $newDate; ?> | <?= $artikel['judul_kategori']?></i></span>
-	      	<p><?= $artikel['konten_artikel']?></p>
-
+	      	<span><?= $artikel['konten_artikel']?></span>
+	      	<br>
 	      	<a href="<?= site_url('artikel/lihat/'.$artikel['id_artikel'])?>" style="padding-left: 0!important; margin-top: 1%" class="btn btn-secondary btn-icon-split">
 	            <span class="icon text-white-50">
 	                <i class="fas fa-arrow-right"></i>

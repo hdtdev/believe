@@ -10,7 +10,7 @@
     	<div class="card shadow mb-4">
     	    <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <span class="m-0 font-weight-bold" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 80px"><?= $user['name']?> </span><span style="width: 80%!important; text-align: right!important; padding-right: 2%"><?= date("d F Y", strtotime($diary['tanggal_diary']))?></span>
+              <span class="m-0 font-weight-bold" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 80px"><?= $diary['name']?> </span><span style="width: 80%!important; text-align: right!important; padding-right: 2%"><?= date("d F Y", strtotime($diary['tanggal_diary']))?></span>
             </div>
             <!-- Card Body -->
             <div class="card-body text-justify">

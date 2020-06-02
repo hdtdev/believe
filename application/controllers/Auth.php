@@ -99,7 +99,9 @@ class Auth extends CI_Controller
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 3,
                 'is_active' => 1,
-                'date_created' => time()
+                'date_created' => time(),
+                'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'sex' => $this->input->post('sex')
             ];
 
             // siapkan token

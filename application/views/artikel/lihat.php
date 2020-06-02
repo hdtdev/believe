@@ -13,7 +13,7 @@
         <h1 class="h3 mb-4 text-gray-800"><strong><?= $artikelDetail['judul_artikel'] ?></strong></h1>
     </div>
 
-    <p style="font-size: 14px"><i><?= $artikelDetail['tanggal_artikel']?> | <?= $artikelDetail['judul_kategori']?></i></p>
+    <p style="font-size: 14px"><i><?= date("d F Y", strtotime($artikelDetail['tanggal_artikel']))?> | <?= $artikelDetail['judul_kategori']?></i></p>
     <p>
     	<?= $artikelDetail['konten_artikel']?>
     </p>
@@ -24,8 +24,8 @@
     <?php foreach($komentar as $komen):?>
     <div class="container shadow" style="margin-top: 1%;">
     	<div class="row" style="padding: 1%">
-            <div class="col-sm-1">
-                <img class="img-comment" src="<?= base_url('assets/img/profile/').$komen['image']?>">
+            <div style="width: 55px">
+                <img style="width: 55px" class="img-comment" src="<?= base_url('assets/img/profile/').$komen['image']?>">
             </div>
             <div class="col-sm-11">
                 <div class="row">
@@ -33,7 +33,7 @@
                         <strong><?= $komen['name']?></strong>
                     </div>
                     <div class="col-sm-4 text-right">
-                        <i style="font-size: 14px"><?= $komen['waktu_komentar_artikel']?></i>
+                        <i style="font-size: 14px"><?= date("d F Y", strtotime($komen['waktu_komentar_artikel']))?></i>
                     </div>
                     <div class="col-sm-12">
                         <p class="text-justify"><?= $komen['konten_komentar']?></p>
