@@ -16,19 +16,23 @@
               	<thead>
                 	<tr>
                   		<th>Name</th>
-                  		<th>Email</th>
-                  		<th>Date Join</th>
-                  		<th>Action</th>
+                      <th>Email</th>
+                      <th>Jenis Kelamin</th>
+                      <th>Tgl Lahir</th>
+                      <th>Date Join</th>
+                      <th>Action</th>
                 	</tr>
               	</thead>
               	<tbody>
               		<?php foreach($allUser as $user):?>
                     	<tr>
-                      		<td><?= $user['name']?></td>
-                      		<td><?= $user['email']?></td>
-                      		<td><?= date('d F Y', $user['date_created']); ?></td>
-                      		<td></td>
-                    	</tr>
+                          <td><?= $user['name']?></td>
+                          <td><?= $user['email']?></td>
+                          <td><?= $user['sex']?></td>
+                          <td><?= date('d F Y', $user['date_created']); ?></td>
+                          <td><?= $user['tgl_lahir']?></td>
+                          <td><a href="<?= site_url('pengguna/lihat/').$user['id']?>" class="btn btn-small"><i class="fas fa-eye"></i></a></td>
+                      </tr>
             		<?php endforeach;?>
               	</tbody>
             </table>

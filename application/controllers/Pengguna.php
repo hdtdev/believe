@@ -22,4 +22,18 @@ class Pengguna extends CI_Controller
         $this->load->view('pengguna/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function lihat($id)
+    {
+        $data['title'] = 'Detail Pengguna';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['pengguna'] = $this->db->query("SELECT * FROM user WHERE role_id = 3 AND id = $id")->row_array();
+        $data['index'] = $this->db->query("SELECT * FROM diary INNER JOIN user ON id_user = id WHERE id_user = $id AND id_status=2")->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('pengguna/lihat', $data);
+        $this->load->view('templates/footer');
+    }
 }

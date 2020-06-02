@@ -24,8 +24,8 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control form-control-user" id="sex" name="sex">
-                                    <option value="p">Perempuan</option>
-                                    <option value="l">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                    <option value="Laki-laki">Laki-laki</option>
                                 </select>
                             </div>
                             <div class="form-group row">
