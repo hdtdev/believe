@@ -11,7 +11,7 @@
     	<div class="card shadow mb-4">
     	    <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <span class="m-0 font-weight-bold"><?= $diary['name']?> </span><span style="width: 40%!important; text-align: right!important; padding-right: 4%"><?= $diary['tanggal_diary']?></span>
+              <span class="m-0 font-weight-bold"><?= $diary['name']?> </span><span style="width: 40%!important; text-align: right!important; padding-right: 4%"><?= date("d F Y", strtotime($diary['tanggal_diary']))?></span>
             </div>
             <!-- Card Body -->
             <div class="card-body text-justify">

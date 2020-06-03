@@ -17,7 +17,7 @@
 	    		<div style="width: 70%">
 	    			<span style="font-size: 20px"><strong><?= $konsultasi['name']?> </strong></span>
 	    			<p class="text-justify"><?= $konsultasi['pesan']?> </p>
-	    			<a href="<?= site_url('konsultasi_psikolog/lihat/').$konsultasi['id_user']?>" class="btn btn-primary">See More</a>
+	    			<a href="<?= site_url('konsultasi_psikolog/lihat/').$konsultasi['id_user']?>" class="btn btn-believe">See More</a>
 	    		</div>
 	    	</div>
 	    </div>

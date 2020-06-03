@@ -22,7 +22,7 @@
                 <strong><?= $komen['name']?></strong>
             </div>
             <div class="col-4 text-right">
-                <i style="font-size: 14px"><?= $komen['waktu_komentar_forum']?></i>
+                <i style="font-size: 14px"><?= date("d F Y", strtotime($komen['waktu_komentar_forum']))?></i>
             </div>
             <div class="col-sm-12">
                 <p><?= $komen['konten_komentar']?></p>

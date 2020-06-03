@@ -22,7 +22,7 @@
 	                    <span class="icon text-white-50">
 	                      <i class="fas fa-comment"></i>
 	                    </span>
-	                    <span class="text">Mulai Konseling</span>
+	                    <span class="text btn-believe">Mulai Konseling</span>
 	                </a>
 	    		</div>
 	    	</div>

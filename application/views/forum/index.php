@@ -20,7 +20,7 @@
 	                    <span class="icon text-white-50">
 	                      <i class="fas fa-comment"></i>
 	                    </span>
-	                    <span class="text">Join Forum</span>
+	                    <span class="text btn-believe">Join Forum</span>
 	                </a>
 	    		</div>
 	    	</div>

@@ -27,7 +27,7 @@
                         <strong><?= $komen['name']?></strong>
                     </div>
                     <div class="col-sm-4 text-right">
-                        <i style="font-size: 14px"><?= $komen['waktu_komentar_diary']?></i>
+                        <i style="font-size: 14px"><?= date("d F Y", strtotime($komen['waktu_komentar_diary']))?></i>
                     </div>
                     <div class="col-sm-12">
                         <p class="text-justify"><?= $komen['konten_komentar']?></p>
