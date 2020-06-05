@@ -6,12 +6,13 @@ class MKonsultasi extends CI_Model
 	public function konsultasi($post, $id_psikolog)
     {
         //here
-        $id_psikolog = $id_psikolog;
         $id_user = $this->session->userdata('id');
+        $id_sender = $this->session->userdata('id');
+        $id_psikolog = $id_psikolog;
         $pesan = $this->input->post('pesan');
         $waktu_konsultasi = date("Y-m-d h:i:sa");
         
-        $sql = $this->db->query("INSERT INTO konsultasi VALUES(NULL, '$id_user', '$id_psikolog', '$pesan', '$waktu_konsultasi')");
+        $sql = $this->db->query("INSERT INTO konsultasi VALUES(NULL, '$id_sender', '$id_user', '$id_psikolog', '$pesan', '$waktu_konsultasi')");
 
         if($sql){
             return true;
@@ -23,12 +24,13 @@ class MKonsultasi extends CI_Model
     public function konsultasi_psikolog($post, $id_user)
     {
         //here
+        $id_sender = $this->session->userdata('id');
         $id_psikolog = $this->session->userdata('id');
         $id_user = $id_user;
         $pesan = $this->input->post('pesan');
         $waktu_konsultasi = date("Y-m-d h:i:sa");
         
-        $sql = $this->db->query("INSERT INTO konsultasi VALUES(NULL, '$id_user', '$id_psikolog', '$pesan', '$waktu_konsultasi')");
+        $sql = $this->db->query("INSERT INTO konsultasi VALUES(NULL, '$id_sender', '$id_user', '$id_psikolog', '$pesan', '$waktu_konsultasi')");
 
         if($sql){
             return true;

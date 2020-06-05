@@ -22,7 +22,7 @@
             <div class="row" style="padding: 5px;">
 
                 <div class="col-12 text-right">
-                    <?= "<span style='font-size:14px'>".date("d F Y", strtotime($komen['waktu_komentar_forum'])) ."</span> <strong style='margin-left:10px'> ". $komen['name'] ."</strong>"?>
+                    <?= "<span style='font-size:14px'>".date("d F Y", strtotime($komen['waktu_komentar_forum'])) ."</span> <strong style='margin-left:10px; margin-right: 20px'> ". $komen['name'] ."</strong>"?>
                 </div>
                 <div class="col-sm-12 text-left" style="padding-left: 25px; padding-right: 25px">
                     <p><?= $komen['konten_komentar']?></p>

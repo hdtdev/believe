@@ -8,19 +8,35 @@
 
     <!-- here -->
     <?php foreach($lihat as $komen):?>
-    <div class="container shadow" style="margin-top: 1%">
-        <div class="row" style="padding: 1%">
-            <div class="col-8">
-                <strong><?= $komen['name']?></strong>
-            </div>
-            <div class="col-4 text-right">
-                <i style="font-size: 14px"><?= date("d F Y", strtotime($komen['waktu_konsultasi']))?></i>
-            </div>
-            <div class="col-sm-12">
-                <p><?= $komen['pesan']?></p>
+
+    <?php if ($this->session->userdata('id')== $komen['id_sender']) { ?>
+        <div class="bg-believe" style="margin-top: 1%; border-radius: 15px 0px 15px 15px; color: white" class="col-sm-12 shadow">
+            <div class="row" style="padding-top: 15px;">
+
+                <div class="col-12 text-right">
+                    <?= "<span style='font-size:14px'>".date("d F Y", strtotime($komen['waktu_konsultasi'])) ."</span> <strong style='margin-left:10px; margin-right: 20px'> ". $komen['name'] ."</strong>"?>
+                </div>
+                <div class="col-sm-12 text-left" style="padding-left: 25px; padding-right: 25px">
+                    <p><?= $komen['pesan']?></p>
+                </div>
             </div>
         </div>
-    </div>
+            
+        <?php }else{?>
+ 
+            <div style="margin-top: 1%; border-radius: 0px 15px 15px 15px; color: white" class="shadow bg-dark col-sm-12">
+                <div class="row" style="padding: 15px;">
+
+                    <div class="col-12">
+                        <?= "<strong style='margin-left:10px'>". $komen['name'] ."</strong> <span style='font-size:14px'>". date("d F Y", strtotime($komen['waktu_konsultasi'])) ."</span>"?>
+                    </div>
+                    <div class="col-sm-12 text-left" style="padding-left: 25px; padding-right: 25px">
+                        <p><?= $komen['pesan']?></p>
+                    </div>
+                </div>
+            </div>
+        <?php }?>
+
     <?php endforeach;?>
 
     <div class="container" style="margin-top: 2%">

@@ -31,7 +31,7 @@ class Konsultasi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $id_user = $this->session->userdata('id');
         $data['psikolog'] = $this->db->get_where('user', ['id' => $id_psikolog])->row_array();
-        $data['konsultasi'] = $this->db->query("SELECT * FROM konsultasi INNER JOIN user ON id=id_user WHERE id_psikolog =$id_psikolog AND id_user=$id_user ORDER BY waktu_konsultasi ASC")->result_array();
+        $data['konsultasi'] = $this->db->query("SELECT * FROM konsultasi INNER JOIN user ON id=id_sender WHERE id_user=$id_user AND id_psikolog=$id_psikolog ORDER BY id_konsultasi")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

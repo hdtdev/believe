@@ -10,8 +10,8 @@
     <?php foreach($allPsikolog as $psikolog):?>
 	    <div class="col-sm-6 shadow" style="border: 1px; margin-top: 2%;">
 	    	<div class="row">
-	    		<div class="col-md-4">
-	    			<img width="100%" style="border-radius: 50%" src="<?= base_url('assets/img/profile/') . $psikolog['image']; ?>">
+	    		<div class="col-md-4 text-center" style="padding: 15px">
+	    			<img width="90%" style="border-radius: 50%" src="<?= base_url('assets/img/profile/') . $psikolog['image']; ?>">
 	    		</div>
 	    		<div class="col-md-8" style="padding: 2%">
 	    			<span style="font-size: 20px"><strong><?= $psikolog['name']?> </strong></span><br>

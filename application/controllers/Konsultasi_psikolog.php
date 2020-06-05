@@ -16,7 +16,7 @@ class Konsultasi_psikolog extends CI_Controller
     	$data['title'] = 'Konsultasi Masuk';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $id_psikolog = $this->session->userdata('id');
-        $data['list'] = $this->db->query("SELECT * FROM konsultasi INNER JOIN user WHERE konsultasi.id_user=user.id AND id_psikolog=$id_psikolog GROUP BY id_user HAVING COUNT(id_user)>=1 ORDER BY waktu_konsultasi DESC")->result_array();
+        $data['list'] = $this->db->query("SELECT * FROM konsultasi INNER JOIN user ON konsultasi.id_sender = user.id WHERE id_psikolog=$id_psikolog GROUP BY id_user HAVING COUNT(id_user)>=1 ORDER BY waktu_konsultasi DESC")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -30,8 +30,8 @@ class Konsultasi_psikolog extends CI_Controller
         //here
         $data['title'] = 'Konsultasi Masuk';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $id_psikologg = $this->session->userdata('id');
-        $data['lihat'] = $this->db->query("SELECT * FROM konsultasi INNER JOIN user ON id_user=id WHERE id_user=$id_user AND id_psikolog = $id_psikologg")->result_array();
+        $id_psikolog = $this->session->userdata('id');
+        $data['lihat'] = $this->db->query("SELECT * FROM konsultasi INNER JOIN user ON id=id_sender WHERE id_user=$id_user AND id_psikolog=$id_psikolog ORDER BY id_konsultasi ")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
