@@ -17,7 +17,7 @@
     <?php foreach($index as $artikel):?>
     <div class="card shadow mb-4">
 	    <div class="card-header py-3">
-	      <h6 class="m-0 font-weight-bold text-primary"><?= $artikel['judul_artikel']?></h6>
+	      <h4 class="m-0 font-weight-bold text-primary"><?= $artikel['judul_artikel']?></h4>
 	    </div>
 	    <div class="card-body">
 	    	<!-- Konfersi date dari timestamp ke 13 may 2020 -->

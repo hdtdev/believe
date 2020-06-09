@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-sm-12 text-center">
                 <img class="img-profile" src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="card-img">
-                <h5 style="margin-top: 2%; color: #7c0dc0;" class="card-title"><strong><?= $user['name']; ?></strong></h5>
+                <h5 style="margin-top: 2%; color: #7c0dc0;" class="card-title"><strong><?= $user['name']; ?></strong> <?php if ($user['sex']== 'Laki-laki'){ echo "<i class='fa fa-mars'></i>"; }else{ echo "<i class='fa fa-mars-stroke'></i>"; }?></h5>
                 <span class="card-text"><?= $user['email']; ?></span><br>
                 <span class="card-text"><small class="text-muted">Member since <?= date('d F Y', $user['date_created']); ?></small></span>
                 <hr style="border: 0.5px dotted #7c0dc0">
