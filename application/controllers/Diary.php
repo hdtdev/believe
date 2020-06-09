@@ -41,7 +41,7 @@ class Diary extends CI_Controller
             //here
             $konten_diary = $this->input->post('konten_diary');
             $only_psikolog = $this->input->post('only_psikolog');
-            $tanggal_diary = date("Y-m-d h:i:sa");
+            $tanggal_diary = date("Y-m-d h:i:s");
             $id_user = $this->input->post('id_user');
             $only_psikolog = $this->input->post('only_psikolog');
             $id_status = $this->input->post('id_status');

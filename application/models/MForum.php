@@ -9,7 +9,7 @@ class MForum extends CI_Model
         $konten_komentar = $this->input->post('konten_komentar');
         $id_user = $this->session->userdata('id');
         $id_forum = $id_forum;
-        $waktu_komentar_forum = date("Y-m-d h:i:sa");
+        $waktu_komentar_forum = date("Y-m-d h:i:s");
         
         $sql = $this->db->query("INSERT INTO komentar_forum VALUES(NULL, '$konten_komentar', '$id_user', '$id_forum', '$waktu_komentar_forum')");
 

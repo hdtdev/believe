@@ -9,7 +9,7 @@ class MArtikel extends CI_Model
 		$konten_komentar = $this->input->post('konten_komentar');
         $id_user = $this->session->userdata('id');
         $id_artikel = $id_artikel;
-        $waktu_komentar_artikel = date("Y-m-d h:i:sa");
+        $waktu_komentar_artikel = date("Y-m-d h:i:s");
         
         $sql = $this->db->query("INSERT INTO komentar_artikel VALUES(NULL, '$konten_komentar', '$id_user', '$id_artikel', '$waktu_komentar_artikel')");
 

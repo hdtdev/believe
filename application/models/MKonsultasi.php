@@ -10,7 +10,7 @@ class MKonsultasi extends CI_Model
         $id_sender = $this->session->userdata('id');
         $id_psikolog = $id_psikolog;
         $pesan = $this->input->post('pesan');
-        $waktu_konsultasi = date("Y-m-d h:i:sa");
+        $waktu_konsultasi = date("Y-m-d h:i:s");
         
         $sql = $this->db->query("INSERT INTO konsultasi VALUES(NULL, '$id_sender', '$id_user', '$id_psikolog', '$pesan', '$waktu_konsultasi')");
 
@@ -28,7 +28,7 @@ class MKonsultasi extends CI_Model
         $id_psikolog = $this->session->userdata('id');
         $id_user = $id_user;
         $pesan = $this->input->post('pesan');
-        $waktu_konsultasi = date("Y-m-d h:i:sa");
+        $waktu_konsultasi = date("Y-m-d h:i:s");
         
         $sql = $this->db->query("INSERT INTO konsultasi VALUES(NULL, '$id_sender', '$id_user', '$id_psikolog', '$pesan', '$waktu_konsultasi')");
 
