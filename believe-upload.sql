@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 01, 2020 at 10:39 AM
+-- Generation Time: Jun 07, 2020 at 10:28 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -176,7 +176,8 @@ INSERT INTO `komentar_forum` (`id_komentar_forum`, `konten_komentar`, `id_user`,
 (1, '<p>test</p>\r\n', 20, 1, '2020-05-14 03:18:21'),
 (2, '<p>test sebagai psikolog&#39;</p>\r\n', 18, 1, '2020-05-14 03:26:34'),
 (3, '<p>test sebagai psikolog lagi</p>\r\n', 18, 1, '2020-05-14 03:27:06'),
-(4, '<p>Hallo, saya psikolog believe. silahkan tulis apa yang ingin anda diskusikan seputar pendidikan disini ya. Sebisa mungkin akan saya jawab</p>\r\n', 18, 3, '2020-05-14 03:29:23');
+(4, '<p>Hallo, saya psikolog believe. silahkan tulis apa yang ingin anda diskusikan seputar pendidikan disini ya. Sebisa mungkin akan saya jawab</p>\r\n', 18, 3, '2020-05-14 03:29:23'),
+(5, '<p>Google and Facebook buttons are available featuring each company&#39;s respective brand color. They are used on the user login and registration pages. You can create more custom buttons by adding a new color variable in the _variables.scss file and then using the Bootstrap button variant mixin to create a new style, as demonstrated in the _buttons.scss file</p>\r\n', 20, 1, '2020-06-04 19:27:22');
 
 -- --------------------------------------------------------
 
@@ -186,6 +187,7 @@ INSERT INTO `komentar_forum` (`id_komentar_forum`, `konten_komentar`, `id_user`,
 
 CREATE TABLE `konsultasi` (
   `id_konsultasi` int(12) NOT NULL,
+  `id_sender` int(12) NOT NULL,
   `id_user` int(12) NOT NULL,
   `id_psikolog` int(12) NOT NULL,
   `pesan` text NOT NULL,
@@ -196,14 +198,15 @@ CREATE TABLE `konsultasi` (
 -- Dumping data for table `konsultasi`
 --
 
-INSERT INTO `konsultasi` (`id_konsultasi`, `id_user`, `id_psikolog`, `pesan`, `waktu_konsultasi`) VALUES
-(1, 20, 18, '<p>nama saya hidayat. saya mencoba untuk mengirim konsultasi kepada psikolog 1</p>\r\n', '2020-05-31 12:23:04'),
-(2, 20, 23, '<p>Mencoba konsultasi dengan psikolog 2</p>\r\n', '2020-05-31 12:21:58'),
-(3, 20, 23, '<p>Konsultasi dengan psikolog 2 sangat menyenangkan</p>\r\n', '2020-05-31 12:22:48'),
-(4, 24, 18, '<p>Saya user 2 ingin melakukan konsultasi dengan psikolog 1</p>\r\n', '2020-05-31 12:22:35'),
-(5, 24, 23, '<p>Saya user 2 juga ingin melakukan konsultasi dengan psikolog 2</p>\r\n', '2020-05-31 12:22:10'),
-(6, 24, 23, '<p>Hai user 2 terima kasih sudah chat dengan psikolog 2</p>\r\n', '2020-05-30 19:27:47'),
-(7, 24, 23, '<p>User 2, silahkan cerita apa yang bisa psikolog 2 bantu</p>\r\n', '2020-05-30 19:34:34');
+INSERT INTO `konsultasi` (`id_konsultasi`, `id_sender`, `id_user`, `id_psikolog`, `pesan`, `waktu_konsultasi`) VALUES
+(12, 24, 24, 18, '<p>Hallo psikolog 1, saya user 2</p>', '2020-06-05 15:18:15'),
+(13, 20, 20, 18, '<p>saya user 1 ingin berkonsultasi dg psikolog 1</p>\r\n', '2020-06-05 15:10:57'),
+(14, 18, 20, 18, '<p>silahkan, saya psikolog 1</p>\r\n', '2020-06-05 15:10:27'),
+(15, 20, 20, 18, '<p>Saya lorem ipsum</p>\r\n', '2020-06-05 15:11:23'),
+(16, 18, 20, 18, '<p>Sebaiknya anda lorem ipsum</p>\r\n', '2020-06-05 15:10:38'),
+(17, 18, 24, 18, '<p>Iya saya psikolog 1, silahkan user 2 untuk menceritakan apa keluhan anda</p>\r\n', '2020-06-04 22:22:16'),
+(18, 20, 20, 18, '<p>Baiklah psikolog 1, saya akan lorem ipsum</p>\r\n', '2020-06-04 22:30:38'),
+(19, 20, 20, 23, '<p>Hallo psikolog 2, saya user 1 ingin berkonsultasi</p>\r\n', '2020-06-04 22:31:07');
 
 -- --------------------------------------------------------
 
@@ -258,19 +261,23 @@ CREATE TABLE `user` (
   `password` varchar(256) NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `date_created` int(11) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `sex` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(14, 'arief hidayat', 'blackconnor78@gmail.com', 'chef.png', '$2y$10$3IqD8DGUYMtONqqObZtMIO59bKMNrXL9DZiXsIwFrx1aAB1KDoYnm', 1, 1, 1582170943),
-(18, 'Psikolog 1', 'psikolog1@gmail.com', '20200228115434chef.png', '$2y$10$FXjcCALl0OVJEonaEdB.seKEBQ2dlaAHqI9Rt34ijnglkxLF/PPpW', 2, 1, 1582174136),
-(20, 'user 1', 'user1@gmail.com', '20200228115434chef.png', '$2y$10$riSRspUWryHDneQYgB9AR.B6Yu7B3ZAZnuer/u3bmFGIBSW4gfISu', 3, 1, 1582522227),
-(23, 'Psikolog 2', 'psikolog2@gmail.com', 'default.jpg', '$2y$10$eqB.gCtAWHyG53HYJZz1uO/XyZFAnKEiwzm1Yuo0/F0Y22ZBGRFSW', 2, 1, 1583309952),
-(24, 'user 2', 'user2@gmail.com', 'default.jpg', '$2y$10$JtE9U2KXLhzjcIS8p7zbUuK9m2XgoeTfsX/MWkvnAN6cggTpyM2lm', 3, 1, 1590926271);
+INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `tgl_lahir`, `sex`) VALUES
+(14, 'arief hidayat', 'blackconnor78@gmail.com', 'chef.png', '$2y$10$3IqD8DGUYMtONqqObZtMIO59bKMNrXL9DZiXsIwFrx1aAB1KDoYnm', 1, 1, 1582170943, '2016-07-06', 'Laki-laki'),
+(18, 'Psikolog 1', 'psikolog1@gmail.com', '20200228115434chef.png', '$2y$10$FXjcCALl0OVJEonaEdB.seKEBQ2dlaAHqI9Rt34ijnglkxLF/PPpW', 2, 1, 1582174136, '1995-01-06', 'Perempuan'),
+(20, 'user 1', 'user1@gmail.com', '20200228115434chef.png', '$2y$10$riSRspUWryHDneQYgB9AR.B6Yu7B3ZAZnuer/u3bmFGIBSW4gfISu', 3, 1, 1582522227, '1998-04-13', 'Laki-laki'),
+(23, 'Psikolog 2', 'psikolog2@gmail.com', 'default.jpg', '$2y$10$eqB.gCtAWHyG53HYJZz1uO/XyZFAnKEiwzm1Yuo0/F0Y22ZBGRFSW', 2, 1, 1583309952, '2001-06-30', 'Laki-laki'),
+(24, 'user 2', 'user2@gmail.com', 'default.jpg', '$2y$10$JtE9U2KXLhzjcIS8p7zbUuK9m2XgoeTfsX/MWkvnAN6cggTpyM2lm', 3, 1, 1590926271, '2003-03-02', 'Perempuan'),
+(25, 'User 3', 'user3@gmail.com', 'default.jpg', '$2y$10$PGaOTDKMJjjAeBYf1kzcr.8ALjRmUL.8BfzSt4nz5EPjtHxRD0t7S', 3, 1, 1591059299, '1992-11-11', 'Perempuan'),
+(27, 'user 4', 'user4@gmail.com', 'default.jpg', '$2y$10$iyvWNKl8f1FfA1a0KU.kb.CQHtSAu/th9.YP80Xi1gZzukGvyve9m', 3, 1, 1591060495, '1990-06-01', 'Laki-laki');
 
 -- --------------------------------------------------------
 
@@ -411,7 +418,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (35, 15, 'Konsultasi Masuk', 'konsultasi_psikolog/masuk', 'fas fa-fw fa-folder', 1),
 (36, 16, 'List Psikolog', 'psikolog', 'fas fa-fw fa-folder', 1),
 (37, 17, 'List Pengguna', 'pengguna', 'fas fa-fw fa-folder', 1),
-(38, 12, 'Diary Psikolog', 'diary_psikolog/psikolog', 'fas fa-fw fa-folder', 1);
+(38, 12, 'Diary Psikolog', 'diary_psikolog/psikolog', 'fas fa-fw fa-folder', 1),
+(39, 16, 'Tambah Psikolog', 'psikolog/tambah', 'fas fa-fw fa-plus', 1);
 
 -- --------------------------------------------------------
 
@@ -434,7 +442,9 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (9, 'blackconnor78@gmail.com', 'yDtc22cjr8Ck7wcWu5ernMng4pUqaYgHpZHj+kdOumg=', 1579145083),
 (12, 'blackconnor78@gmail.com', 'oGsHW1JvC0Kq4Y1eJLY3lrCqjik7COvaFShrgehWII4=', 1582170943),
 (21, 'photograrief@gmail.com', 'U2tXrK5zw0QXlBOLffbIAmiB76p/vXSU4zUOCE/lQzQ=', 1583309952),
-(22, 'user2@gmail.com', 'mDHY9lepaHr5NgtxGhxwBw5/JB/NAbPTsXgMCVXaMQ4=', 1590926271);
+(22, 'user2@gmail.com', 'mDHY9lepaHr5NgtxGhxwBw5/JB/NAbPTsXgMCVXaMQ4=', 1590926271),
+(23, 'user3@gmail.com', 'yNfzX+P0tK2BWbtlV15S8RlSqKcuWQ4+NRyFQc3EuO4=', 1591059299),
+(24, 'user4@gmail.com', 'MLJIXMpZjgBTcKY+BysBtx0MY58dWEXicaXtv6vW9Ow=', 1591060495);
 
 --
 -- Indexes for dumped tables
@@ -568,13 +578,13 @@ ALTER TABLE `komentar_diary`
 -- AUTO_INCREMENT for table `komentar_forum`
 --
 ALTER TABLE `komentar_forum`
-  MODIFY `id_komentar_forum` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_komentar_forum` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `konsultasi`
 --
 ALTER TABLE `konsultasi`
-  MODIFY `id_konsultasi` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_konsultasi` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `list_forum`
@@ -592,7 +602,7 @@ ALTER TABLE `pesan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -616,13 +626,13 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

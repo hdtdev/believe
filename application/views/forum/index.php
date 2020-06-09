@@ -15,8 +15,9 @@
 	    			<img style="width: 80%" src="<?= base_url('assets/img/logo.png')?>">
 	    		</div>
 	    		<div class="col-md-8" style="padding: 2%">
-	    			<span style="font-size: 20px"><strong><?= $forum['nama_list_forum']?></strong></span><br>
-	    			<a style="margin-top: 2%" href="<?= site_url('forum/diskusi/'.$forum['id_list_forum'])?>" class="btn btn-secondary btn-icon-split">
+	    			<span style="font-size: 20px"><strong><?= $forum['nama_list_forum']?></strong></span>
+                    <p><?= $forum['deskripsi_list_forum']?></p>
+	    			<a href="<?= site_url('forum/diskusi/'.$forum['id_list_forum'])?>" class="btn btn-secondary btn-icon-split">
 	                    <span class="icon text-white-50">
 	                      <i class="fas fa-comment"></i>
 	                    </span>
