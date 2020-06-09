@@ -28,7 +28,7 @@
                       		<td><?= $artikel['name']?></td>
                       		<td><?php if($artikel['id_status'] == 1){ echo "Draft";}else{echo"Published";}?></td>
                       		<td>
-                          <a href="<?= site_url('artikel_psikolog/lihat/'.$artikel['id_artikel'])?>">lihat</a>  
+                          <a href="<?= site_url('artikel_admin/lihat/'.$artikel['id_artikel'])?>">lihat</a>  
                           </td>
                     	</tr>
             		<?php endforeach;?>

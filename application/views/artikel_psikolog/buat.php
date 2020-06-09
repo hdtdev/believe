@@ -6,7 +6,7 @@
         <h1 class="h3 mb-4 text-gray-800"><strong><?= $title; ?></strong></h1>
     </div>
 
-    <form method="post" action="<?= base_url('artikel_psikolog/buat')?>" enctype="multipart/form-data">
+    <form method="post" action="<?= base_url('artikel_admin/buat')?>" enctype="multipart/form-data">
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Judul Artikel</label>
             <div class="col-sm-10">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Artikel_psikolog extends CI_Controller
+class Artikel_admin extends CI_Controller
 {
     public function __construct()
     {
@@ -27,7 +27,7 @@ class Artikel_psikolog extends CI_Controller
     public function buat()
     {
         //here
-        $data['title'] = 'Buat Artikel';
+        $data['title'] = 'Buat Artikel (Admin)';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['kategori'] = $this->db->query("SELECT * FROM kategori WHERE id_status = 2")->result_array();
 
@@ -48,7 +48,7 @@ class Artikel_psikolog extends CI_Controller
             $id_user = $this->input->post("id_user");
             $id_status = $this->input->post("id_status");
             $this->db->query("INSERT INTO artikel VALUES(NULL, '$judul_artikel', '$konten_artikel', '$id_kategori', '$tanggal_artikel', '$id_user', '$id_status')");
-            redirect('artikel_psikolog');
+            redirect('artikel_admin');
         }
     }
 
@@ -68,7 +68,7 @@ class Artikel_psikolog extends CI_Controller
 
         if (isset($_POST['submit_komentar_artikel'])) {
             $this->MArtikel->komentar($_POST, $id_artikel);
-            redirect('artikel_psikolog/lihat/'.intval($id_artikel));
+            redirect('artikel_admin/lihat/'.intval($id_artikel));
         }
     }
 
