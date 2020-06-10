@@ -15,7 +15,8 @@ class Forum_psikolog extends CI_Controller
     {
     	$data['title'] = 'Forum';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['allForum'] = $this->db->query("SELECT * FROM list_forum WHERE id_status = 2")->result_array();
+        $id = $this->session->userdata('id');
+        $data['allForum'] = $this->db->query("SELECT * FROM list_forum WHERE id_status = 2 AND id_psikolog=$id")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -29,12 +30,18 @@ class Forum_psikolog extends CI_Controller
         //here
         $data['title'] = 'Buat Forum';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id_psikolog = $this->session->userdata('id');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('forum_psikolog/buat', $data);
         $this->load->view('templates/footer');
+
+        if (isset($_POST['buatforum'])) {
+            $this->MForum->buat($_POST, $id_psikolog);
+            redirect('forum_psikolog/');
+        }
     }
 
     public function diskusi($id_list_forum)

@@ -12,7 +12,7 @@
     	<div class="col-sm-6 shadow" style="border: 1px; margin-top: 2%;">
 	    	<div class="row">
 	    		<div class="col-md-4">
-	    			<img style="width: 80%" src="<?= base_url('assets/img/logo.png')?>">
+	    			<img style="width: 140px; height: 140px" src="<?= base_url('assets/img/forum/').$forum['image_list_forum']?>">
 	    			<!-- <i style="width: 100%" class="<?= $forum['image_list_forum']?>" aria-hidden="true"></i> -->
 	    		</div>
 	    		<div class="col-md-8" style="padding: 2%">
