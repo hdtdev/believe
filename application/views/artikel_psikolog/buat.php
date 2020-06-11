@@ -39,6 +39,14 @@
         </div>
 
         <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Thumbnail</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control" id="thumbnail_artikel" name="thumbnail_artikel"></input>
+            </div>
+            <?= form_error('thumbnail_artikel', '<small class="text-danger pl-3">', '</small>'); ?>
+        </div>
+
+        <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Status</label>
             <div class="col-sm-10">
                 <select class="form-control" id="id_status" name="id_status">

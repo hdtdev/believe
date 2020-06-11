@@ -47,7 +47,25 @@ class Artikel_admin extends CI_Controller
             $tanggal_artikel = date("Y-m-d");
             $id_user = $this->input->post("id_user");
             $id_status = $this->input->post("id_status");
-            $this->db->query("INSERT INTO artikel VALUES(NULL, '$judul_artikel', '$konten_artikel', '$id_kategori', '$tanggal_artikel', '$id_user', '$id_status')");
+
+            if(!empty($_FILES['thumbnail_artikel']['name'])){
+            $img_thumbnail =  str_replace(' ','_',date('Ymdhis').$_FILES['thumbnail_artikel']['name']);
+            $config['upload_path']      = './assets/img/artikel/';
+            $config['allowed_types']    = 'gif|jpg|png|webp';
+            $config['max_size']         = '5048';
+            $config['file_name']        = $img_thumbnail;
+            $this->upload->initialize($config);
+            $this->upload->do_upload('thumbnail_artikel');
+            // echo "<pre>";
+            // print_r($this->upload->data());
+            // print_r($this->upload->display_errors());
+            // echo "</pre>";
+            // exit();
+        }
+
+        $image = $img_thumbnail;
+
+            $this->db->query("INSERT INTO artikel VALUES(NULL, '$judul_artikel', '$konten_artikel', '$id_kategori', '$tanggal_artikel', '$id_user', '$id_status', '$image')");
             redirect('artikel_admin');
         }
     }
