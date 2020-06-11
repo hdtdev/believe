@@ -30,8 +30,8 @@
                       		<td><?= $psi['name']?></td>
                       		<td><?= $psi['email']?></td>
                       		<td><?php if ($psi['sex']='l') { echo "Laki-laki";}else{ echo "Perempuan";}?></td>
-                      		<td><?= date('d F Y', $psi['date_created']); ?></td>
                       		<td><?= $psi['tgl_lahir']?></td>
+                      		<td><?= date('d F Y', $psi['date_created']); ?></td>
                       		<td></td>
                     	</tr>
             		<?php endforeach;?>

@@ -29,8 +29,8 @@
                           <td><?= $user['name']?></td>
                           <td><?= $user['email']?></td>
                           <td><?= $user['sex']?></td>
-                          <td><?= date('d F Y', $user['date_created']); ?></td>
                           <td><?= $user['tgl_lahir']?></td>
+                          <td><?= date('d F Y', $user['date_created']); ?></td>
                           <td><a href="<?= site_url('pengguna/lihat/').$user['id']?>" class="btn btn-small"><i class="fas fa-eye"></i></a></td>
                       </tr>
             		<?php endforeach;?>
