@@ -35,7 +35,8 @@
                                     <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="<?= base_url('auth/registration'); ?>">Create an Account!</a>
+                                    <a class="small" href="<?= base_url('auth/registration'); ?>">Register User!</a> | | 
+                                    <a class="small" href="<?= base_url('auth/registration_psikolog'); ?>">Register Psikolog!</a>
                                 </div>
                             </div>
                         </div>

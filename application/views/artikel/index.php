@@ -17,7 +17,7 @@
     <?php foreach($index as $artikel):?>
     <div class="card shadow mb-4">
 	    <div class="card-header py-3">
-	      <h4 class="m-0 font-weight-bold text-primary"><?= $artikel['judul_artikel']?></h4>
+	      <a href="<?= site_url('artikel/lihat/'.$artikel['id_artikel'])?>"> <h4 class="m-0 font-weight-bold text-primary"><?= $artikel['judul_artikel']?></h4></a>
 	    </div>
 	    <div class="card-body">
 	    	<!-- Konfersi date dari timestamp ke 13 may 2020 -->
@@ -28,14 +28,17 @@
 	    	<!-- End Konfersi -->
 
 	    	<span style="font-size: 14px"><i><?= $artikel['name']?> | <?= $newDate; ?> | <?= $artikel['judul_kategori']?></i></span>
-	      	<span><?= $artikel['konten_artikel']?></span>
-	      	<br>
-	      	<a href="<?= site_url('artikel/lihat/'.$artikel['id_artikel'])?>" style="padding-left: 0!important; margin-top: 1%" class="btn btn-secondary btn-icon-split">
-	            <span class="icon text-white-50">
-	                <i class="fas fa-arrow-right"></i>
-	            </span>
-	            <span class="text btn-believe">Selengkapnya</span>
-	        </a>
+	      	<span>
+	      		<?= $artikel['konten_artikel']?> 
+
+		      	<!-- <a href="<?= site_url('artikel/lihat/'.$artikel['id_artikel'])?>" style="padding-left: 0!important; margin-top: 1%" class="btn btn-secondary btn-icon-split">
+		            <span class="icon text-white-50">
+		                <i class="fas fa-arrow-right"></i>
+		            </span>
+		            <span class="text btn-believe">Selengkapnya</span>
+		        </a> -->
+	    	</span>
+	        <p style="margin-top: 15px"><i class="fa fa-comment"></i><?= " ".$artikel['jumlahkomen']." Comments"?></p>
 	    </div>
 	</div>
 	<?php endforeach;?>

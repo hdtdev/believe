@@ -7,9 +7,9 @@
                 <div class="col-lg">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">User Registration</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Psikolog Registration</h1>
                         </div>
-                        <form class="user" method="post" action="<?= base_url('auth/registration'); ?>">
+                        <form class="user" method="post" action="<?= base_url('auth/registration_psikolog'); ?>">
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Full name" value="<?= set_value('name'); ?>">
                                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -36,6 +36,22 @@
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                                 </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-2 col-form-label">Scan KTP</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" id="ktp" name="ktp" rows="8"></input>
+                                </div>
+                                <?= form_error('ktp', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-2 col-form-label">Surat Ijin Praktek</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" id="ijin_praktek" name="ijin_praktek" rows="8"></input>
+                                </div>
+                                <?= form_error('ijin_praktek', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Register Account
