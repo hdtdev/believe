@@ -39,26 +39,41 @@
     <?php endforeach;?>
 
   	<!-- here -->
-  	<div class="container" style="margin-top: 2%">
-        <div class="row">
-            <div class="col-sm-12">
-                <form method="post" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <textarea class="form-control ckeditor" id="pesan" name="pesan" rows="8"></textarea>
-                        </div>
-                        <?= form_error('konten_komentar', '<small class="text-danger pl-3">', '</small>'); ?>
-                    </div>
+    <?php if (!empty($is_active['is_active']== '0')) {?>
+        
+        <div class="text-center" style=" background-color: grey; padding: 25px; margin-top: 35px">
+            <p style="font-size: 22px; margin-top: 20px; color: white"><strong>konsultasi disable</strong></p>
+        </div>   
 
-                    <div class="form-group row justify-content-end">
-                        <div class="col-sm-12">
-                            <button name="submit_konsultasi" type="submit" class="btn btn-believe">Submit Konsultasi</button>
-                        </div>
-                    </div>
-                </form>
+        <div class="form-group row justify-content-end" style="margin-top: 15px">
+            <div class="col-sm-12 text-center">
+                <a href="<?= site_url('konsultasi/reactive/').$this->uri->segment(3)?>" class="btn btn-success">Mulai Ulang</a>
             </div>
         </div>
-    </div>
+
+    <?php } else{?> 
+        <div class="container" style="margin-top: 2%">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <textarea class="form-control ckeditor" id="pesan" name="pesan" rows="8"></textarea>
+                            </div>
+                            <?= form_error('konten_komentar', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+
+                        <div class="form-group row justify-content-end">
+                            <div class="col-sm-12">
+                                <button name="submit_konsultasi" type="submit" class="btn btn-believe">Submit Konsultasi</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+     
+    <?php }?>
 
 </div>
 <!-- /.container-fluid -->

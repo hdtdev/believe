@@ -32,6 +32,7 @@ class Konsultasi_psikolog extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $id_psikolog = $this->session->userdata('id');
         $data['lihat'] = $this->db->query("SELECT * FROM konsultasi INNER JOIN user ON id=id_sender WHERE id_user=$id_user AND id_psikolog=$id_psikolog ORDER BY id_konsultasi ")->result_array();
+        $data['is_active'] = $this->db->query("SELECT is_active FROM konsultasi WHERE id_psikolog=$id_psikolog AND id_user=$id_user LIMIT 1")->row_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -43,5 +44,12 @@ class Konsultasi_psikolog extends CI_Controller
             $this->MKonsultasi->konsultasi_psikolog($_POST, $id_user);
             redirect('konsultasi_psikolog/lihat/'.intval($id_user));
         }
+    }
+
+    public function disable($id_user)
+    {
+        //here
+        $this->MKonsultasi->disable($id_user);
+        redirect('konsultasi_psikolog/lihat/'.intval($id_user));
     }
 }
