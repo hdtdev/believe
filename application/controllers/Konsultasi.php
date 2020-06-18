@@ -15,7 +15,7 @@ class Konsultasi extends CI_Controller
     {
     	$data['title'] = 'Konsultasi';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['allPsikolog'] = $this->db->query("SELECT * FROM user WHERE role_id = 2")->result_array();
+        $data['allPsikolog'] = $this->db->query("SELECT *, (SELECT AVG(rating) FROM rating WHERE rating.id_psikolog=user.id) as rating FROM user WHERE role_id = 2")->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -43,7 +43,18 @@ class Konsultasi extends CI_Controller
         if (isset($_POST['submit_konsultasi'])) {
             $this->MKonsultasi->konsultasi($_POST, $id_psikolog);
             redirect('konsultasi/konsultasi/'.intval($id_psikolog));
+        }elseif (isset($_POST['submit_rating'])) {
+            $this->MKonsultasi->rating($_POST, $id_psikolog);
+            redirect('konsultasi/konsultasi/'.intval($id_psikolog));
         }
+
+    }
+
+    public function disable($id_psikolog)
+    {
+        //here
+        $this->MKonsultasi->disable_user($id_psikolog);
+        redirect('konsultasi/konsultasi/'.intval($id_psikolog));
     }
 
     public function reactive($id_psikolog)

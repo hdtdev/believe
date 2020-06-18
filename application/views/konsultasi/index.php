@@ -17,7 +17,8 @@
 	    			<span style="font-size: 20px"><strong><?= $psikolog['name']?> </strong></span><br>
 	    			<span style="font-size: 14px; color: #df0fcc"><strong>Psikolog</strong></span><br>
 	    			<span style="font-size: 14px;"><del>Rp. 25.000</del> GRATIS</span><br>
-	    			<small class="text-muted">Member since <?= date('d F Y', $user['date_created']); ?></small><br>
+	    			<span style="font-size: 14px;"><?= "Rating : ".intval($psikolog['rating'])."%"?></span><br>
+	    			<!-- <small class="text-muted">Member since <?= date('d F Y', $user['date_created']); ?></small><br> -->
 	    			<a style="margin-top: 2%" href="<?= site_url('konsultasi/konsultasi/').$psikolog['id']?>" class="btn btn-secondary btn-icon-split">
 	                    <span class="icon text-white-50">
 	                      <i class="fas fa-comment"></i>
