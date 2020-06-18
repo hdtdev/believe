@@ -1,5 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
+  <a href="<?= site_url('pengguna')?>" type="button" class="btn btn-outline-primary">Back</a>
 
     <!-- Page Heading -->
     <div class="text-center">

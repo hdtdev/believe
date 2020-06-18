@@ -19,8 +19,8 @@
                   		<th>Name</th>
                   		<th>Email</th>
                   		<th>Jenis Kelamin</th>
-                  		<th>Tgl Lahir</th>
                   		<th>Date Join</th>
+                      <th>Status</th>
                   		<th>Action</th>
                 	</tr>
               	</thead>
@@ -30,9 +30,9 @@
                       		<td><?= $psi['name']?></td>
                       		<td><?= $psi['email']?></td>
                       		<td><?php if ($psi['sex']='l') { echo "Laki-laki";}else{ echo "Perempuan";}?></td>
-                      		<td><?= $psi['tgl_lahir']?></td>
                       		<td><?= date('d F Y', $psi['date_created']); ?></td>
-                      		<td></td>
+                          <td><?php if ($psi['is_active']==0) { echo "non-active";}else{ echo "Active";}?></td>
+                      		<td><a href="<?= site_url('psikolog/lihat/').$psi['id']?>" class="btn btn-small"><i class="fas fa-eye"></i></a></td>
                     	</tr>
             		<?php endforeach;?>
               	</tbody>

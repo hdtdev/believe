@@ -18,6 +18,12 @@
                                 <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" value="<?= set_value('email'); ?>">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="email" name="telepon" placeholder="Telepon" value="<?= set_value('telepon'); ?>">
+                                <?= form_error('telepon', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+
                             <div class="form-group">
                                 <input type="date" class="form-control form-control-user" id="tgl_lahir" name="tgl_lahir" value="<?= set_value('tgl_lahir'); ?>">
                                 <?= form_error('tgl_lahir', '<small class="text-danger pl-3">', '</small>'); ?>

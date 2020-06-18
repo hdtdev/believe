@@ -104,7 +104,8 @@ class Auth extends CI_Controller
                 'is_active' => 1,
                 'date_created' => time(),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
-                'sex' => $this->input->post('sex')
+                'sex' => $this->input->post('sex'),
+                'telepon' => 0
             ];
 
             // siapkan token
@@ -171,17 +172,34 @@ class Auth extends CI_Controller
             $ijinPraktekFilePath = $ijinPraktekHolder['upload_data']['file_name'];
             $ktpFilePath = $ktpHolder['upload_data']['file_name'];
 
-            $name = htmlspecialchars($this->input->post('name', true));
-            $email = htmlspecialchars($this->input->post('email', true));
-            $image = 'default.jpg';
-            $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
-            $role_id = 2;
-            $is_active = 1;
-            $date_created = time();
-            $tgl_lahir = $this->input->post('tgl_lahir');
-            $sex = $this->input->post('sex');
+            // $name = htmlspecialchars($this->input->post('name', true));
+            // $email = htmlspecialchars($this->input->post('email', true));
+            // $image = 'default.jpg';
+            // $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+            // $role_id = 2;
+            // $is_active = 1;
+            // $date_created = time();
+            // $tgl_lahir = $this->input->post('tgl_lahir');
+            // $sex = $this->input->post('sex');
 
-            $this->db->query("INSERT INTO user VALUES(NULL, '$name', '$email', '$image', '$password', $role_id, $is_active, $date_created, $tgl_lahir, '$sex', '0', '$ktpFilePath', '$ijinPraktekFilePath')");
+            // $this->db->query("INSERT INTO user VALUES(NULL, '$name', '$email', '$image', '$password', $role_id, $is_active, $date_created, $tgl_lahir, '$sex', '0', '$ktpFilePath', '$ijinPraktekFilePath')");
+            $email = $this->input->post('email', true);
+            $data = [
+                'name' => htmlspecialchars($this->input->post('name', true)),
+                'email' => htmlspecialchars($email),
+                'image' => 'default.jpg',
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'role_id' => 2,
+                'is_active' => 0,
+                'date_created' => time(),
+                'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'sex' => $this->input->post('sex'),
+                'telepon' => $this->input->post('telepon'),
+                'ktp' => $ktpHolder['upload_data']['file_name'],
+                'ijin_praktek' => $ijinPraktekHolder['upload_data']['file_name']
+            ];
+
+            $this->db->insert('user', $data);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your account has been created. Please Login!</div>');
             redirect('auth');
