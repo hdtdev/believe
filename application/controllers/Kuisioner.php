@@ -7,6 +7,7 @@ class Kuisioner extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->model('MKuisioner');
         // is_logged_in();
     }
 
@@ -14,12 +15,16 @@ class Kuisioner extends CI_Controller
     {
     	$data['title'] = 'Kuisioner User';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id = $this->session->userdata('id');
         
         $this->load->view('templates/header', $data);
-        //$this->load->view('templates/sidebar', $data);
-        //$this->load->view('templates/topbar', $data);
         $this->load->view('kuisioner/kuisioner_user', $data);
-        //$this->load->view('templates/footer');
+
+        if (isset($_POST['submit_kuisioner'])) {
+            # code...
+            $this->MKuisioner->submit($_POST, $id);
+            redirect('user');
+        }
     }
 
 }

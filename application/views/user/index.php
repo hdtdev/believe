@@ -13,6 +13,8 @@
         </div>
     </div>
 
+    <?php if($is_kuisioner['is_kuisioner'] == 0 && $role_id['role_id'] == 3){ redirect('kuisioner/buat/');}?>
+
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">

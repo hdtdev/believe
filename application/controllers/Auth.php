@@ -105,7 +105,10 @@ class Auth extends CI_Controller
                 'date_created' => time(),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'sex' => $this->input->post('sex'),
-                'telepon' => 0
+                'telepon' => 0,
+                'ktp' => NULL,
+                'ijin_praktek' => NULL,
+                'is_kuisioner' => 0
             ];
 
             // siapkan token
