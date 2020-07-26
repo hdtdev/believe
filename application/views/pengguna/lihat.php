@@ -18,7 +18,7 @@
         <div class="col-sm-12 text-center">
           <span><strong><?= $pengguna['name']?></strong></span><br>
           <span><?= $pengguna['email']."<strong> | </strong>".$pengguna['sex']."<strong> | </strong>".$pengguna['tgl_lahir']?></span> <br>
-          <?php if($result_kuisioner['result'] < 10){ ?>
+          <?php if($result_kuisioner['result'] > 0 && $result_kuisioner['result'] < 10){ ?>
             <?php echo "<span><strong> Normal </strong> </span>"; ?>
             <?php }elseif ($result_kuisioner['result'] >9 && $result_kuisioner['result'] < 14){ ?>
             <?php  echo "<span><strong> Mild </strong> </span>"; ?>
@@ -26,6 +26,8 @@
             <?php  echo "<span><strong> Moderate </strong> </span>"; ?>
             <?php }elseif ($result_kuisioner['result'] >20 && $result_kuisioner['result'] <28){ ?>
             <?php  echo "<span><strong> Severe </strong> </span>"; ?>
+            <?php }elseif (empty($result_kuisioner['result'])){?>
+            <?php echo "<span><strong> Not Available </strong> </span>"?>
             <?php }else{ echo "<span><strong> Very Severe </strong> </span>"; }?>
         </div>
         <div class="col-sm-12" style="margin-top: 25px">
